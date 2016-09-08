@@ -42,7 +42,7 @@ var commonLoaders = [
   },
   { test: /\.scss$/,
     loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]!postcss-loader!sass?includePaths[]='
-      + encodeURIComponent(path.resolve(__dirname, '..', 'app', 'scss')))
+      + encodeURIComponent(path.resolve(__dirname, '..', 'app', 'css')))
   }
 ];
 
@@ -100,7 +100,7 @@ module.exports = [
     },
     resolve: {
       root: [path.join(__dirname, '..', 'app')],
-      extensions: ['', '.js', '.jsx', '.css']
+      extensions: ['', '.js', '.jsx', '.css', '.scss'],
     },
     plugins: [
         // extract inline css from modules into separate files
@@ -139,7 +139,7 @@ module.exports = [
     },
     resolve: {
       root: [path.join(__dirname, '..', 'app')],
-      extensions: ['', '.js', '.jsx', '.css', '.scss']
+      extensions: ['', '.js', '.jsx', '.css', '.scss'],
     },
     plugins: [
         // Order the modules and chunks by occurrence.
