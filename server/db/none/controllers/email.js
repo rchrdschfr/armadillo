@@ -1,12 +1,27 @@
-import { post } from 'axios';
+import { connect as connectToMailjet } from 'node-mailjet';
 
-const apiEndPoint = 'http://www.gametabs.net';
+const Mailjet = connectToMailjet(
+  process.env.MJ_APIKEY_PUBLIC,
+  process.env.MJ_APIKEY_PRIVATE
+);
 
 export function send(req, res, next) {
-  post(apiEndPoint).then((response) => {
+  Mailjet.post('send').request({
+    'FromEmail': 'richard@tradegecko.com',
+    'FromName': 'Engineering team',
+    'Subject': "Customer request for trial extension",
+    'Text-part': `
+      ${req.query.name} has requested a trial extension.
+
+      Customer ID: ${req.query.tgUserId}
+      Email: ${req.query.email}
+    `,
+    'Recipients': [{ 'Email': 'richard@tradegecko.com' }]
+  }).then((response) => {
+    console.log(response);
     next();
   }).catch((data) => {
-    console.log("Error sending email", data);
+    console.log("Error sending email:", data);
 
     res.status(500).send("Error");
   });
