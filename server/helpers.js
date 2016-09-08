@@ -1,15 +1,13 @@
-export function validateRequest(request) {
-  let validation = { pass: false };
-
-  if (request.query) {
-    if (request.query.tgUserId && request.query.email) {
-      return { ...validation, pass: true }
+export function validateRequest(req, res, next) {
+  if (req.query) {
+    if (req.query.tgUserId && req.query.email && req.query.name) {
+      next();
     }
     else {
-      return { ...validation, error: "No user ID and email not set." }
+      res.status(401).send("User ID, name, or email not set.");
     }
   }
   else {
-    return { ...validation, error: "No query params set." }
+    res.status(401).send("User ID, name, or email not set.");
   }
 }

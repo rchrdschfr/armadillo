@@ -11,19 +11,8 @@ const slackController = controllers && controllers.slack;
 
 export default (app) => {
   if (emailController && slackController) {
-    app.get(
-      '/extend-trial',
-      (req, res, next) => {
-        let validation = validateRequest(req);
-        if (validation.pass) {
-          next();
-        }
-        else {
-          console.log("Error validating request", validation.error);
-
-          res.status(401).send("Bad request");
-        }
-      },
+    app.get('/extend-trial',
+      validateRequest,
       emailController.send,
       slackController.send,
       (req, res, next) => {
