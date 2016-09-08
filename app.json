@@ -1,0 +1,10 @@
+{
+  "name": "Armadillo",
+  "description": "A service to facilitate customers extending their TradeGecko trials.",
+  "repository": "https://github.com/rchrdschfr/armadillo",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["tradegecko"],
+  "addons" : [
+  	"mongohq"
+  ]
+}
