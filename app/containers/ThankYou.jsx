@@ -26,6 +26,6 @@ export default connect(
     return {
       numClicks: state.button.numClicks
     }
-  }, {
-    buttonClick
-  })(ThankYou);
+  },
+  { buttonClick }
+)(ThankYou);
