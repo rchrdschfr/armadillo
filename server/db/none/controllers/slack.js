@@ -7,7 +7,7 @@ const username = "trialextensionbot";
 export function send(req, res, next) {
   const name = req.query.name || "A customer";
   const aid = req.query.aid || "None provided";
-  const email = req.query.email.replace(' ', '+');
+  const email = req.query.email.split(' ').join('+');
 
   post(webhookURL, {
     channel,
