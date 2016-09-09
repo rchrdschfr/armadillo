@@ -8,11 +8,11 @@ export function send(req, res, next) {
   const name = req.query.name || "A customer";
   const aid = req.query.aid || "None provided";
   const email = req.query.email;
-  
+
   post(webhookURL, {
     channel,
     username,
-    text: `${name} has requested a trial extension.\n\nAccount ID: ${aid}\nEmail: ${email}`
+    text: `${name} has requested a trial extension.\n\nEmail: ${email}\nAccount ID: ${aid}`
   }).then((response) => {
     next();
   }).catch((data) => {
