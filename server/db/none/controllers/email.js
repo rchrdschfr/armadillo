@@ -6,15 +6,19 @@ const Mailjet = connectToMailjet(
 );
 
 export function send(req, res, next) {
+  const name = req.query.name || "A customer";
+  const aid = req.query.aid || "None provided";
+  const email = req.query.email;
+
   Mailjet.post('send').request({
     'FromEmail': 'richard@tradegecko.com',
     'FromName': 'Engineering team',
     'Subject': "Customer request for trial extension",
     'Text-part': `
-      ${req.query.name} has requested a trial extension.
+      ${name} has requested a trial extension.
 
-      Customer ID: ${req.query.tgUserId}
-      Email: ${req.query.email}
+      Email: ${email}
+      Account ID: ${aid}
     `,
     'Recipients': [{ 'Email': 'richard@tradegecko.com' }]
   }).then((response) => {

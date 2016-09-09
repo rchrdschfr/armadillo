@@ -5,10 +5,14 @@ const channel = '#koreanchicken';
 const username = "trialextensionbot";
 
 export function send(req, res, next) {
+  const name = req.query.name || "A customer";
+  const aid = req.query.aid || "None provided";
+  const email = req.query.email;
+  
   post(webhookURL, {
     channel,
     username,
-    text: `${req.query.name} has requested a trial extension.\n\nTG user ID: ${req.query.tgUserId}\nEmail: ${req.query.email}`
+    text: `${name} has requested a trial extension.\n\nAccount ID: ${aid}\nEmail: ${email}`
   }).then((response) => {
     next();
   }).catch((data) => {
