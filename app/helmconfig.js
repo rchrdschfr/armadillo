@@ -22,7 +22,8 @@ const config = {
     { rel: 'icon', sizes: '192x192', href: chromecon },
     // Add to homescreen for Safari on IOS
     { rel: 'apple-touch-icon', sizes: '152x152', applecon },
-    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Raleway', type: 'text/css' },
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Raleway:100,300,700', type: 'text/css' },
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:100,400,700', type: 'text/css' },
     { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css' },
     { rel: 'stylesheet', href: '/assets/styles/main.css' }
     // SEO: If your mobile URL is different from the desktop URL,
