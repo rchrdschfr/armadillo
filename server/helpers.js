@@ -1,4 +1,5 @@
 export function validateRequest(req, res, next) {
+  console.log(req.query);
   if (req.query) {
     if (req.query.email) {
       next();
