@@ -8,7 +8,7 @@ const Mailjet = connectToMailjet(
 export function send(req, res, next) {
   const name = req.query.name || "A customer";
   const aid = req.query.aid || "None provided";
-  const email = req.query.email;
+  const email = req.query.email.replace(' ', '+');
 
   Mailjet.post('send').request({
     'FromEmail': 'richard@tradegecko.com',
