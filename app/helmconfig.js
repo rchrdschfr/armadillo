@@ -47,7 +47,8 @@ const config = {
     { name: 'apple-mobile-web-app-title', content: 'TradeGecko Trial Extension' },
     // Tile icon for Win8 (144x144 + tile color)
     { name: 'msapplication-TileImage', content: mscon },
-    { name: 'msapplication-TileColor', content: '#3372DF' }
+    { name: 'msapplication-TileColor', content: '#3372DF' },
+    { name: 'robots', content: 'noindex' },
   ]
 };
 
