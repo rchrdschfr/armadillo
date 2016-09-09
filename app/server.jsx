@@ -53,7 +53,10 @@ export default function render(req, res) {
   const authenticated = req.isAuthenticated();
   const history = createMemoryHistory();
   const store = configureStore({
-    
+    button: {
+      numClicks: 0,
+      showGame: false,
+    }
   }, history);
   const routes = createRoutes(store);
 

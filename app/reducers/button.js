@@ -7,11 +7,14 @@ import * as types from 'types';
  * more context. - My 2 cents.
  */
 export default function button(state = {
-  numClicks: 0
+  numClicks: 0,
+  showGame: false
 }, action = {}) {
   switch (action.type) {
     case types.CLICK_BUTTON:
       return { ...state, numClicks: state.numClicks + 1 }
+    case types.REVEAL_GAME:
+      return { ...state, showGame: true }
     default:
       return state;
   }
