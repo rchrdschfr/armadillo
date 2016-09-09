@@ -1,13 +1,13 @@
 export function validateRequest(req, res, next) {
   if (req.query) {
-    if (req.query.tgUserId && req.query.email && req.query.name) {
+    if (req.query.email) {
       next();
     }
     else {
-      res.status(401).send("User ID, name, or email not set.");
+      res.status(401).send("An email must be provided.");
     }
   }
   else {
-    res.status(401).send("User ID, name, or email not set.");
+    res.status(401).send("No query params.");
   }
 }
